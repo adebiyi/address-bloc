@@ -70,10 +70,10 @@ class MenuController
   def view_entry_number
     system "clear"
     print "Enter an entry number: "
-    n = gets.to_i
+    n = gets.chomp.to_i
 
-    if n == 0
-      puts "Sorry, that is not a valid input. Number must be greater than 0."
+    if n > @address_book.entries.size
+      puts "Sorry, that is not a valid input."
       main_menu
     else
       puts "You entered #{n}"
